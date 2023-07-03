@@ -15,8 +15,6 @@
 		0232ADDD297C67AD0042D2FB /* ClockWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0232ADDC297C67AD0042D2FB /* ClockWidgetBundle.swift */; };
 		0232ADE1297C67AD0042D2FB /* ClockWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0232ADE0297C67AD0042D2FB /* ClockWidget.swift */; };
 		0232ADE4297C67DA0042D2FB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0232ADE3297C67DA0042D2FB /* Assets.xcassets */; };
-		0232ADE6297C67DA0042D2FB /* ClockWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 0232ADE2297C67AE0042D2FB /* ClockWidget.intentdefinition */; };
-		0232ADE7297C67DA0042D2FB /* ClockWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 0232ADE2297C67AE0042D2FB /* ClockWidget.intentdefinition */; };
 		0232ADEA297C67DA0042D2FB /* ClockWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 0232ADD5297C67AD0042D2FB /* ClockWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		F7AA159E2A289208002D06B2 /* TimelineProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7AA159D2A289208002D06B2 /* TimelineProvider.swift */; };
 		F7EAE35F2A28AB0300664B37 /* TwentyFourHourClock in Frameworks */ = {isa = PBXBuildFile; productRef = F7EAE35E2A28AB0300664B37 /* TwentyFourHourClock */; };
@@ -57,10 +55,11 @@
 		0232ADD9297C67AD0042D2FB /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		0232ADDC297C67AD0042D2FB /* ClockWidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockWidgetBundle.swift; sourceTree = "<group>"; };
 		0232ADE0297C67AD0042D2FB /* ClockWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockWidget.swift; sourceTree = "<group>"; };
-		0232ADE2297C67AE0042D2FB /* ClockWidget.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = ClockWidget.intentdefinition; sourceTree = "<group>"; };
 		0232ADE3297C67DA0042D2FB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0232ADE5297C67DA0042D2FB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F7AA159D2A289208002D06B2 /* TimelineProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineProvider.swift; sourceTree = "<group>"; };
+		F7B000112A52B0F8000D3796 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		F7B000142A52C26A000D3796 /* Clock.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Clock.entitlements; sourceTree = "<group>"; };
 		F7EAE35D2A28AAED00664B37 /* TwentyFourHourClock */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = TwentyFourHourClock; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -109,9 +108,11 @@
 		0232ADC2297C676C0042D2FB /* Clock */ = {
 			isa = PBXGroup;
 			children = (
+				F7B000142A52C26A000D3796 /* Clock.entitlements */,
+				0232ADC9297C67740042D2FB /* Preview Content */,
+				F7B000112A52B0F8000D3796 /* Info.plist */,
 				0232ADC3297C676C0042D2FB /* ClockApp.swift */,
 				0232ADC7297C67740042D2FB /* Assets.xcassets */,
-				0232ADC9297C67740042D2FB /* Preview Content */,
 			);
 			path = Clock;
 			sourceTree = "<group>";
@@ -138,7 +139,6 @@
 			children = (
 				0232ADDC297C67AD0042D2FB /* ClockWidgetBundle.swift */,
 				0232ADE0297C67AD0042D2FB /* ClockWidget.swift */,
-				0232ADE2297C67AE0042D2FB /* ClockWidget.intentdefinition */,
 				0232ADE3297C67DA0042D2FB /* Assets.xcassets */,
 				0232ADE5297C67DA0042D2FB /* Info.plist */,
 				F7AA159D2A289208002D06B2 /* TimelineProvider.swift */,
@@ -254,7 +254,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0232ADE7297C67DA0042D2FB /* ClockWidget.intentdefinition in Sources */,
 				0232ADC4297C676C0042D2FB /* ClockApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -265,7 +264,6 @@
 			files = (
 				0232ADDD297C67AD0042D2FB /* ClockWidgetBundle.swift in Sources */,
 				F7AA159E2A289208002D06B2 /* TimelineProvider.swift in Sources */,
-				0232ADE6297C67DA0042D2FB /* ClockWidget.intentdefinition in Sources */,
 				0232ADE1297C67AD0042D2FB /* ClockWidget.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -410,15 +408,20 @@
 				"ASSETCATALOG_COMPILER_APPICON_NAME[sdk=macosx*]" = "AppIcon-macOS";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				CODE_SIGN_ENTITLEMENTS = Clock/Clock.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Clock/Preview Content\"";
 				DEVELOPMENT_TEAM = QC68T7ZF53;
 				ENABLE_APP_SANDBOX = YES;
-				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_HARDENED_RUNTIME = NO;
+				"ENABLE_HARDENED_RUNTIME[sdk=macosx*]" = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = "㉢㉡㉤㉢ⓚ\n\n";
+				INFOPLIST_FILE = Clock/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Clock ㉔";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -432,6 +435,7 @@
 				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = llc.goodhats.clock;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -450,15 +454,20 @@
 				"ASSETCATALOG_COMPILER_APPICON_NAME[sdk=macosx*]" = "AppIcon-macOS";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				CODE_SIGN_ENTITLEMENTS = Clock/Clock.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Clock/Preview Content\"";
 				DEVELOPMENT_TEAM = QC68T7ZF53;
 				ENABLE_APP_SANDBOX = YES;
-				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_HARDENED_RUNTIME = NO;
+				"ENABLE_HARDENED_RUNTIME[sdk=macosx*]" = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_CFBundleDisplayName = "㉢㉡㉤㉢ⓚ\n\n";
+				INFOPLIST_FILE = Clock/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Clock ㉔";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -472,6 +481,7 @@
 				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = llc.goodhats.clock;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -493,7 +503,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ClockWidget/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = ClockWidget;
+				INFOPLIST_KEY_CFBundleDisplayName = "Clock ㉔";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -525,7 +535,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ClockWidget/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = ClockWidget;
+				INFOPLIST_KEY_CFBundleDisplayName = "Clock ㉔";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

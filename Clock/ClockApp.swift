@@ -10,17 +10,18 @@ struct ClockApp: App {
 
   var body: some Scene {
     WindowGroup {
-      ClockView(date: date)
-        .background(.black)
-        .onAppear {
-          Timer.scheduledTimer(
-            withTimeInterval: 0.2,
-            repeats: true
-          ) { _ in
-            date = .now
+        ClockView(date: date, showDate: true)
+          .background(.black)
+          .onAppear {
+            Timer.scheduledTimer(
+              withTimeInterval: 1,
+              repeats: true
+            ) { _ in
+              date = .now
+            }
           }
-        }
-    }
+      }
+    .windowResizability(.contentSize)
   }
 }
 
@@ -28,7 +29,7 @@ struct ClockApp: App {
 
 struct ContentView_Previews: PreviewProvider {
   static var previews: some View {
-    ClockView(date: .now)
+    ClockView(date: .now, showDate: true)
       .background(.black)
   }
 }
