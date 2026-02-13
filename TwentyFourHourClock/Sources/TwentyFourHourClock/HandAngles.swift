@@ -1,8 +1,9 @@
 import Foundation
 
 struct HandAngles: Hashable {
-  init?(date: Date) {
-    let calendar = Calendar.current
+  init?(date: Date, timeZone: TimeZone = .current) {
+    var calendar = Calendar.current
+    calendar.timeZone = timeZone
     let dateComponents = calendar
       .dateComponents(
         [.hour, .minute, .second, .nanosecond],

@@ -1,15 +1,11 @@
-// swift-tools-version: 5.9
+// swift-tools-version: 6.2
 
 import PackageDescription
 
 let package = Package(
   name: "TwentyFourHourClock",
   platforms: [
-    .macOS(.v14),
-    .iOS(.v17),
-    .watchOS(.v10),
-    .tvOS(.v17),
-    .visionOS(.v1),
+    .macOS(.v26),
   ],
   products: [
     .library(

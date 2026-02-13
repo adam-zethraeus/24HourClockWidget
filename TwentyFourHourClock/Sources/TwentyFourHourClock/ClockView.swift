@@ -9,11 +9,13 @@ public struct ClockView: View {
   public init(
     date: Date,
     showDate: Bool,
-    showSecondHand: Bool = true
+    showSecondHand: Bool = true,
+    timeZone: TimeZone = .current
   ) {
     self.date = date
     self.showDate = showDate
     self.showSecondHand = showSecondHand
+    self.timeZone = timeZone
   }
 
   // MARK: Public
@@ -65,10 +67,11 @@ public struct ClockView: View {
   var date: Date
   var showDate: Bool
   var showSecondHand: Bool
+  var timeZone: TimeZone
 
   var angles: HandAngles? {
     showDate
-    ? HandAngles(date: date)
+    ? HandAngles(date: date, timeZone: timeZone)
     : nil
   }
 

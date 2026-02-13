@@ -1,69 +1,160 @@
-//
-//  widget24.swift
-//  widget24
-//
-//  Created by adamz on 2026-02-12.
-//  Copyright © 2026 GoodHatsLLC. All rights reserved.
-//
-
-import WidgetKit
 import SwiftUI
 import TwentyFourHourClock
+import WidgetKit
 
-struct Provider: AppIntentTimelineProvider {
-    func placeholder(in context: Context) -> SimpleEntry {
-        SimpleEntry(date: Date(), configuration: ConfigurationAppIntent())
-    }
+// MARK: - ClockEntry
 
-    func snapshot(for configuration: ConfigurationAppIntent, in context: Context) async -> SimpleEntry {
-        SimpleEntry(date: Date(), configuration: configuration)
-    }
-    
-    func timeline(for configuration: ConfigurationAppIntent, in context: Context) async -> Timeline<SimpleEntry> {
-        var entries: [SimpleEntry] = []
-
-        // Generate a timeline consisting of five entries an hour apart, starting from the current date.
-        let currentDate = Date()
-        for hourOffset in 0 ..< 5 {
-            let entryDate = Calendar.current.date(byAdding: .hour, value: hourOffset, to: currentDate)!
-            let entry = SimpleEntry(date: entryDate, configuration: configuration)
-            entries.append(entry)
-        }
-
-        return Timeline(entries: entries, policy: .atEnd)
-    }
-
-//    func relevances() async -> WidgetRelevances<ConfigurationAppIntent> {
-//        // Generate a list containing the contexts this widget is relevant in.
-//    }
+struct ClockEntry: TimelineEntry {
+  let date: Date
+  let timeZone: TimeZone
+  let timeZoneLabel: String
 }
 
-struct SimpleEntry: TimelineEntry {
-    let date: Date
-    let configuration: ConfigurationAppIntent
+// MARK: - ClockTimelineProvider
+
+struct ClockTimelineProvider: AppIntentTimelineProvider {
+
+  func placeholder(in context: Context) -> ClockEntry {
+    ClockEntry(date: .now, timeZone: .current, timeZoneLabel: "")
+  }
+
+  func snapshot(for configuration: ClockWidgetIntent, in context: Context) async -> ClockEntry {
+    let tz = resolvedTimeZone(from: configuration)
+    return ClockEntry(date: .now, timeZone: tz, timeZoneLabel: tz.displayLabel)
+  }
+
+  func timeline(for configuration: ClockWidgetIntent, in context: Context) async -> Timeline<ClockEntry> {
+    let tz = resolvedTimeZone(from: configuration)
+    let label = tz.displayLabel
+
+    let calendar = Calendar.current
+    let now = Date.now
+
+    // Round down to the start of the current second.
+    let components = calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: now)
+    let startOfSecond = calendar.date(from: components) ?? now
+
+    // Generate an entry every second for 1 hour.
+    let entryCount = 3600
+    let entries = (0 ..< entryCount).map { secondOffset in
+      let date = startOfSecond.addingTimeInterval(Double(secondOffset))
+      return ClockEntry(date: date, timeZone: tz, timeZoneLabel: label)
+    }
+
+    return Timeline(entries: entries, policy: .atEnd)
+  }
+
+  private func resolvedTimeZone(from configuration: ClockWidgetIntent) -> TimeZone {
+    if let detail = configuration.timezone,
+       let tz = TimeZone(identifier: detail.id)
+    {
+      return tz
+    }
+    return .current
+  }
 }
 
-struct widget24EntryView : View {
-    var entry: Provider.Entry
+// MARK: - ClockWidgetView
 
-    var body: some View {
-        VStack {
-            Text("Time:")
-            Text(entry.date, style: .time)
+struct ClockWidgetView: View {
+  let entry: ClockEntry
+  @Environment(\.widgetFamily) var family
 
-            Text("Favorite Emoji:")
-            Text(entry.configuration.favoriteEmoji)
-        }
+  var body: some View {
+    switch family {
+    case .systemSmall:
+      smallView
+    case .systemMedium:
+      mediumView
+    case .systemLarge:
+      largeView
+    default:
+      smallView
     }
+  }
+
+  // Small: just the clock face, filling the space.
+  private var smallView: some View {
+    ClockView(
+      date: entry.date,
+      showDate: true,
+      showSecondHand: true,
+      timeZone: entry.timeZone
+    )
+    .padding(4)
+  }
+
+  // Medium: clock on the left, timezone info on the right.
+  private var mediumView: some View {
+    HStack(spacing: 0) {
+      ClockView(
+        date: entry.date,
+        showDate: true,
+        showSecondHand: true,
+        timeZone: entry.timeZone
+      )
+      .padding(4)
+
+      VStack(alignment: .leading, spacing: 6) {
+        Text(timeString)
+          .font(.system(.title, design: .rounded, weight: .medium))
+          .monospacedDigit()
+        Text(entry.timeZoneLabel)
+          .font(.system(.caption, design: .rounded))
+          .foregroundStyle(.secondary)
+      }
+      .frame(maxWidth: .infinity, alignment: .leading)
+      .padding(.trailing, 12)
+    }
+  }
+
+  // Large: bigger clock with timezone label underneath.
+  private var largeView: some View {
+    VStack(spacing: 8) {
+      ClockView(
+        date: entry.date,
+        showDate: true,
+        showSecondHand: true,
+        timeZone: entry.timeZone
+      )
+      .padding(8)
+
+      VStack(spacing: 2) {
+        Text(timeString)
+          .font(.system(.title2, design: .rounded, weight: .medium))
+          .monospacedDigit()
+        Text(entry.timeZoneLabel)
+          .font(.system(.caption, design: .rounded))
+          .foregroundStyle(.secondary)
+      }
+      .padding(.bottom, 12)
+    }
+  }
+
+  private var timeString: String {
+    let formatter = DateFormatter()
+    formatter.timeZone = entry.timeZone
+    formatter.dateFormat = "HH:mm:ss"
+    return formatter.string(from: entry.date)
+  }
 }
 
-struct widget24: Widget {
-    let kind: String = "widget24"
+// MARK: - Widget24
 
-    var body: some WidgetConfiguration {
-        AppIntentConfiguration(kind: kind, intent: ConfigurationAppIntent.self, provider: Provider()) { entry in
-            widget24EntryView(entry: entry)
-                .containerBackground(.fill.tertiary, for: .widget)
-        }
+struct Widget24: Widget {
+  let kind: String = "widget24"
+
+  var body: some WidgetConfiguration {
+    AppIntentConfiguration(
+      kind: kind,
+      intent: ClockWidgetIntent.self,
+      provider: ClockTimelineProvider()
+    ) { entry in
+      ClockWidgetView(entry: entry)
+        .containerBackground(.fill.tertiary, for: .widget)
     }
+    .configurationDisplayName("Clock ㉔")
+    .description("A 24-hour analog clock.")
+    .supportedFamilies([.systemSmall, .systemMedium, .systemLarge])
+  }
 }
