@@ -8,10 +8,12 @@ public struct ClockView: View {
 
   public init(
     date: Date,
-    showDate: Bool
+    showDate: Bool,
+    showSecondHand: Bool = true
   ) {
     self.date = date
     self.showDate = showDate
+    self.showSecondHand = showSecondHand
   }
 
   // MARK: Public
@@ -38,12 +40,14 @@ public struct ClockView: View {
               innerPadding: step,
               angle: angles.minute
             )
-            Hand.Thin(
-              step: step,
-              frontInset: step * 2.1,
-              backInset: step * 7,
-              angle: angles.second
-            )
+            if showSecondHand {
+              Hand.Thin(
+                step: step,
+                frontInset: step * 2.1,
+                backInset: step * 7,
+                angle: angles.second
+              )
+            }
           }
           HandPin(step: step)
         }
@@ -64,6 +68,7 @@ public struct ClockView: View {
 
   var date: Date
   var showDate: Bool
+  var showSecondHand: Bool
 
   var angles: HandAngles? {
     showDate

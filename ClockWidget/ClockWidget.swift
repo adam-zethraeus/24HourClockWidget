@@ -1,7 +1,7 @@
+import AppIntents
 import SwiftUI
 import TwentyFourHourClock
 import WidgetKit
-import AppIntents
 
 // MARK: - ClockWidget
 
@@ -18,68 +18,66 @@ struct ClockWidgetView: View {
   let date: Date
   let showDate: Bool
   var body: some View {
-    ClockView(date: date, showDate: showDate)
+    ClockView(date: date, showDate: showDate, showSecondHand: false)
       .containerBackground(for: .widget) {
         Color.black
-      }.onAppear {
-        Timer
-          .scheduledTimer(
-            withTimeInterval: 60,
-            repeats: true
-          ) { _ in
-            WidgetCenter
-              .shared
-              .reloadTimelines(ofKind: "24HourClockWidget")
-          }
       }
   }
 }
 
-  struct TwentyFourHourProvider: AppIntentTimelineProvider {
-    func placeholder(in context: Context) -> TwentyFourHourEntry {
-      .init(date: .now, showDate: false)
-    }
-
-    func timeline(for configuration: TwentyFourClockIntent, in context: Context) async -> Timeline<TwentyFourHourEntry> {
-      let now = Date.now
-      let entries = stride(from: 0, to: 120, by: 1)
-        .map { offset in
-          now.addingTimeInterval(offset)
-        }
-        .map { TwentyFourHourEntry(date: $0) }
-
-      return .init(entries: entries, policy: .after(now.advanced(by: 90)))
-    }
-
-    func snapshot(for configuration: TwentyFourClockIntent, in context: Context) async -> TwentyFourHourEntry {
-      .init(date: .now)
-    }
+struct TwentyFourHourProvider: AppIntentTimelineProvider {
+  func placeholder(in context: Context) -> TwentyFourHourEntry {
+    .init(date: .now, showDate: false)
   }
 
-  struct AppIntentClockWidget: Widget {
-    let kind: String = "24HourClockWidget"
+  func timeline(for configuration: TwentyFourClockIntent, in context: Context) async -> Timeline<TwentyFourHourEntry> {
+    let calendar = Calendar.current
+    let now = Date.now
 
-    var body: some WidgetConfiguration {
-      AppIntentConfiguration<TwentyFourClockIntent, ClockWidgetView>(
-        kind: kind, provider: TwentyFourHourProvider()) { entry in
-          ClockWidgetView(
-            date: entry.date,
-            showDate: entry.showDate
-          )
-        }
-        .configurationDisplayName("Clock ㉔")
+    // Round down to the start of the current minute.
+    let components = calendar.dateComponents([.year, .month, .day, .hour, .minute], from: now)
+    let startOfMinute = calendar.date(from: components) ?? now
+
+    // Generate an entry for every minute for the next 6 hours.
+    let entryCount = 360
+    let entries = (0 ..< entryCount).map { minuteOffset in
+      let date = startOfMinute.addingTimeInterval(Double(minuteOffset) * 60)
+      return TwentyFourHourEntry(date: date)
     }
+
+    return Timeline(entries: entries, policy: .atEnd)
   }
 
-  // MARK: - ClockWidget_Previews
+  func snapshot(for configuration: TwentyFourClockIntent, in context: Context) async -> TwentyFourHourEntry {
+    .init(date: .now)
+  }
+}
 
-  struct ClockWidget_Previews: PreviewProvider {
-    static var previews: some View {
-      ClockWidgetView(date: .now, showDate: true)
-        .previewContext(
-          WidgetPreviewContext(
-            family: .systemSmall
-          )
+struct AppIntentClockWidget: Widget {
+  let kind: String = "24HourClockWidget"
+
+  var body: some WidgetConfiguration {
+    AppIntentConfiguration<TwentyFourClockIntent, ClockWidgetView>(
+      kind: kind, provider: TwentyFourHourProvider()
+    ) { entry in
+      ClockWidgetView(
+        date: entry.date,
+        showDate: entry.showDate
+      )
+    }
+    .configurationDisplayName("Clock ㉔")
+  }
+}
+
+// MARK: - ClockWidget_Previews
+
+struct ClockWidget_Previews: PreviewProvider {
+  static var previews: some View {
+    ClockWidgetView(date: .now, showDate: true)
+      .previewContext(
+        WidgetPreviewContext(
+          family: .systemSmall
         )
-    }
+      )
   }
+}

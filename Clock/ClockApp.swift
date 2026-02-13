@@ -6,22 +6,16 @@ import TwentyFourHourClock
 @main
 struct ClockApp: App {
 
-  @State var date: Date = .now
-
   var body: some Scene {
     WindowGroup {
-        ClockView(date: date, showDate: true)
-          .background(.black)
-          .onAppear {
-            Timer.scheduledTimer(
-              withTimeInterval: 1,
-              repeats: true
-            ) { _ in
-              date = .now
-            }
-          }
+      TimelineView(.periodic(from: .now, by: 1.0)) { context in
+        ClockView(date: context.date, showDate: true)
       }
+      .background(.black)
+    }
+    #if os(macOS)
     .windowResizability(.contentSize)
+    #endif
   }
 }
 
