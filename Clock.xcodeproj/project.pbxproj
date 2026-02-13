@@ -3,20 +3,17 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 60;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0232ADC4297C676C0042D2FB /* ClockApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0232ADC3297C676C0042D2FB /* ClockApp.swift */; };
-		0232ADC8297C67740042D2FB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0232ADC7297C67740042D2FB /* Assets.xcassets */; };
-		0232ADCB297C67740042D2FB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0232ADCA297C67740042D2FB /* Preview Assets.xcassets */; };
 		0232ADD8297C67AD0042D2FB /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0232ADD7297C67AD0042D2FB /* WidgetKit.framework */; };
 		0232ADDA297C67AD0042D2FB /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0232ADD9297C67AD0042D2FB /* SwiftUI.framework */; };
-		0232ADDD297C67AD0042D2FB /* ClockWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0232ADDC297C67AD0042D2FB /* ClockWidgetBundle.swift */; };
-		0232ADE1297C67AD0042D2FB /* ClockWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0232ADE0297C67AD0042D2FB /* ClockWidget.swift */; };
-		0232ADE4297C67DA0042D2FB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0232ADE3297C67DA0042D2FB /* Assets.xcassets */; };
 		0232ADEA297C67DA0042D2FB /* ClockWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 0232ADD5297C67AD0042D2FB /* ClockWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		F7AA159E2A289208002D06B2 /* TimelineProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7AA159D2A289208002D06B2 /* TimelineProvider.swift */; };
+		F7A95E2E2F3EE0ED0038A62A /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0232ADD7297C67AD0042D2FB /* WidgetKit.framework */; };
+		F7A95E2F2F3EE0ED0038A62A /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0232ADD9297C67AD0042D2FB /* SwiftUI.framework */; };
+		F7A95E3E2F3EE0ED0038A62A /* widget24Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = F7A95E2D2F3EE0EC0038A62A /* widget24Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		F7A95E442F3EE1600038A62A /* TwentyFourHourClock in Frameworks */ = {isa = PBXBuildFile; productRef = F7A95E432F3EE1600038A62A /* TwentyFourHourClock */; };
 		F7EAE35F2A28AB0300664B37 /* TwentyFourHourClock in Frameworks */ = {isa = PBXBuildFile; productRef = F7EAE35E2A28AB0300664B37 /* TwentyFourHourClock */; };
 		F7EAE3612A28AB0B00664B37 /* TwentyFourHourClock in Frameworks */ = {isa = PBXBuildFile; productRef = F7EAE3602A28AB0B00664B37 /* TwentyFourHourClock */; };
 /* End PBXBuildFile section */
@@ -29,6 +26,13 @@
 			remoteGlobalIDString = 0232ADD4297C67AD0042D2FB;
 			remoteInfo = ClockWidgetExtension;
 		};
+		F7A95E3C2F3EE0ED0038A62A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0232ADB8297C676C0042D2FB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F7A95E2C2F3EE0EC0038A62A;
+			remoteInfo = widget24Extension;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -38,6 +42,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
+				F7A95E3E2F3EE0ED0038A62A /* widget24Extension.appex in Embed Foundation Extensions */,
 				0232ADEA297C67DA0042D2FB /* ClockWidgetExtension.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
@@ -47,21 +52,42 @@
 
 /* Begin PBXFileReference section */
 		0232ADC0297C676C0042D2FB /* Clock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Clock.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		0232ADC3297C676C0042D2FB /* ClockApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockApp.swift; sourceTree = "<group>"; };
-		0232ADC7297C67740042D2FB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		0232ADCA297C67740042D2FB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		0232ADD5297C67AD0042D2FB /* ClockWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ClockWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		0232ADD7297C67AD0042D2FB /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		0232ADD9297C67AD0042D2FB /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
-		0232ADDC297C67AD0042D2FB /* ClockWidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockWidgetBundle.swift; sourceTree = "<group>"; };
-		0232ADE0297C67AD0042D2FB /* ClockWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockWidget.swift; sourceTree = "<group>"; };
-		0232ADE3297C67DA0042D2FB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		0232ADE5297C67DA0042D2FB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F7AA159D2A289208002D06B2 /* TimelineProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimelineProvider.swift; sourceTree = "<group>"; };
-		F7B000112A52B0F8000D3796 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		F7B000142A52C26A000D3796 /* Clock.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Clock.entitlements; sourceTree = "<group>"; };
+		F7A95E2D2F3EE0EC0038A62A /* widget24Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = widget24Extension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7EAE35D2A28AAED00664B37 /* TwentyFourHourClock */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = TwentyFourHourClock; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		F7A95E3F2F3EE0ED0038A62A /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = F7A95E2C2F3EE0EC0038A62A /* widget24Extension */;
+		};
+		F7A95E502F3EF1060038A62A /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 0232ADD4297C67AD0042D2FB /* ClockWidgetExtension */;
+		};
+		F7A95E5C2F3EF1090038A62A /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 0232ADBF297C676C0042D2FB /* Clock */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		F7A95E302F3EE0ED0038A62A /* widget24 */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (F7A95E3F2F3EE0ED0038A62A /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = widget24; sourceTree = "<group>"; };
+		F7A95E4A2F3EF1060038A62A /* ClockWidget */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (F7A95E502F3EF1060038A62A /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = ClockWidget; sourceTree = "<group>"; };
+		F7A95E572F3EF1090038A62A /* Clock */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (F7A95E5C2F3EF1090038A62A /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = Clock; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		0232ADBD297C676C0042D2FB /* Frameworks */ = {
@@ -82,6 +108,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		F7A95E2A2F3EE0EC0038A62A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F7A95E2F2F3EE0ED0038A62A /* SwiftUI.framework in Frameworks */,
+				F7A95E442F3EE1600038A62A /* TwentyFourHourClock in Frameworks */,
+				F7A95E2E2F3EE0ED0038A62A /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -89,8 +125,9 @@
 			isa = PBXGroup;
 			children = (
 				F7EAE35D2A28AAED00664B37 /* TwentyFourHourClock */,
-				0232ADC2297C676C0042D2FB /* Clock */,
-				0232ADDB297C67AD0042D2FB /* ClockWidget */,
+				F7A95E572F3EF1090038A62A /* Clock */,
+				F7A95E4A2F3EF1060038A62A /* ClockWidget */,
+				F7A95E302F3EE0ED0038A62A /* widget24 */,
 				0232ADD6297C67AD0042D2FB /* Frameworks */,
 				0232ADC1297C676C0042D2FB /* Products */,
 			);
@@ -101,28 +138,9 @@
 			children = (
 				0232ADC0297C676C0042D2FB /* Clock.app */,
 				0232ADD5297C67AD0042D2FB /* ClockWidgetExtension.appex */,
+				F7A95E2D2F3EE0EC0038A62A /* widget24Extension.appex */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		0232ADC2297C676C0042D2FB /* Clock */ = {
-			isa = PBXGroup;
-			children = (
-				F7B000142A52C26A000D3796 /* Clock.entitlements */,
-				0232ADC9297C67740042D2FB /* Preview Content */,
-				F7B000112A52B0F8000D3796 /* Info.plist */,
-				0232ADC3297C676C0042D2FB /* ClockApp.swift */,
-				0232ADC7297C67740042D2FB /* Assets.xcassets */,
-			);
-			path = Clock;
-			sourceTree = "<group>";
-		};
-		0232ADC9297C67740042D2FB /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				0232ADCA297C67740042D2FB /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 		0232ADD6297C67AD0042D2FB /* Frameworks */ = {
@@ -132,18 +150,6 @@
 				0232ADD9297C67AD0042D2FB /* SwiftUI.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		0232ADDB297C67AD0042D2FB /* ClockWidget */ = {
-			isa = PBXGroup;
-			children = (
-				0232ADDC297C67AD0042D2FB /* ClockWidgetBundle.swift */,
-				0232ADE0297C67AD0042D2FB /* ClockWidget.swift */,
-				0232ADE3297C67DA0042D2FB /* Assets.xcassets */,
-				0232ADE5297C67DA0042D2FB /* Info.plist */,
-				F7AA159D2A289208002D06B2 /* TimelineProvider.swift */,
-			);
-			path = ClockWidget;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -162,6 +168,10 @@
 			);
 			dependencies = (
 				0232ADE9297C67DA0042D2FB /* PBXTargetDependency */,
+				F7A95E3D2F3EE0ED0038A62A /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				F7A95E572F3EF1090038A62A /* Clock */,
 			);
 			name = Clock;
 			packageProductDependencies = (
@@ -183,12 +193,38 @@
 			);
 			dependencies = (
 			);
+			fileSystemSynchronizedGroups = (
+				F7A95E4A2F3EF1060038A62A /* ClockWidget */,
+			);
 			name = ClockWidgetExtension;
 			packageProductDependencies = (
 				F7EAE3602A28AB0B00664B37 /* TwentyFourHourClock */,
 			);
 			productName = ClockWidgetExtension;
 			productReference = 0232ADD5297C67AD0042D2FB /* ClockWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		F7A95E2C2F3EE0EC0038A62A /* widget24Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F7A95E402F3EE0ED0038A62A /* Build configuration list for PBXNativeTarget "widget24Extension" */;
+			buildPhases = (
+				F7A95E292F3EE0EC0038A62A /* Sources */,
+				F7A95E2A2F3EE0EC0038A62A /* Frameworks */,
+				F7A95E2B2F3EE0EC0038A62A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				F7A95E302F3EE0ED0038A62A /* widget24 */,
+			);
+			name = widget24Extension;
+			packageProductDependencies = (
+				F7A95E432F3EE1600038A62A /* TwentyFourHourClock */,
+			);
+			productName = widget24Extension;
+			productReference = F7A95E2D2F3EE0EC0038A62A /* widget24Extension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
@@ -198,8 +234,8 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1420;
-				LastUpgradeCheck = 1500;
+				LastSwiftUpdateCheck = 2630;
+				LastUpgradeCheck = 2630;
 				ORGANIZATIONNAME = GoodHatsLLC;
 				TargetAttributes = {
 					0232ADBF297C676C0042D2FB = {
@@ -207,6 +243,9 @@
 					};
 					0232ADD4297C67AD0042D2FB = {
 						CreatedOnToolsVersion = 14.2;
+					};
+					F7A95E2C2F3EE0EC0038A62A = {
+						CreatedOnToolsVersion = 26.3;
 					};
 				};
 			};
@@ -225,6 +264,7 @@
 			targets = (
 				0232ADBF297C676C0042D2FB /* Clock */,
 				0232ADD4297C67AD0042D2FB /* ClockWidgetExtension */,
+				F7A95E2C2F3EE0EC0038A62A /* widget24Extension */,
 			);
 		};
 /* End PBXProject section */
@@ -234,8 +274,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0232ADCB297C67740042D2FB /* Preview Assets.xcassets in Resources */,
-				0232ADC8297C67740042D2FB /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -243,7 +281,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0232ADE4297C67DA0042D2FB /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F7A95E2B2F3EE0EC0038A62A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -254,7 +298,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0232ADC4297C676C0042D2FB /* ClockApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -262,9 +305,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0232ADDD297C67AD0042D2FB /* ClockWidgetBundle.swift in Sources */,
-				F7AA159E2A289208002D06B2 /* TimelineProvider.swift in Sources */,
-				0232ADE1297C67AD0042D2FB /* ClockWidget.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F7A95E292F3EE0EC0038A62A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,6 +322,11 @@
 			isa = PBXTargetDependency;
 			target = 0232ADD4297C67AD0042D2FB /* ClockWidgetExtension */;
 			targetProxy = 0232ADE8297C67DA0042D2FB /* PBXContainerItemProxy */;
+		};
+		F7A95E3D2F3EE0ED0038A62A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F7A95E2C2F3EE0EC0038A62A /* widget24Extension */;
+			targetProxy = F7A95E3C2F3EE0ED0038A62A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -313,7 +365,9 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 99FKXWHBZ8;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -333,15 +387,16 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				TVOS_DEPLOYMENT_TARGET = 17.0;
-				WATCHOS_DEPLOYMENT_TARGET = 10.0;
-				XROS_DEPLOYMENT_TARGET = 1.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = auto;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TVOS_DEPLOYMENT_TARGET = 17.0;
+				WATCHOS_DEPLOYMENT_TARGET = 10.0;
+				XROS_DEPLOYMENT_TARGET = 1.0;
 			};
 			name = Debug;
 		};
@@ -379,7 +434,9 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 99FKXWHBZ8;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -393,22 +450,22 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				TVOS_DEPLOYMENT_TARGET = 17.0;
-				WATCHOS_DEPLOYMENT_TARGET = 10.0;
-				XROS_DEPLOYMENT_TARGET = 1.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = auto;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				TVOS_DEPLOYMENT_TARGET = 17.0;
 				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 10.0;
+				XROS_DEPLOYMENT_TARGET = 1.0;
 			};
 			name = Release;
 		};
 		0232ADCF297C67740042D2FB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"ASSETCATALOG_COMPILER_APPICON_NAME[sdk=iphoneos*]" = "AppIcon-iOS";
 				"ASSETCATALOG_COMPILER_APPICON_NAME[sdk=macosx*]" = "AppIcon-macOS";
@@ -419,42 +476,43 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Clock/Preview Content\"";
-				DEVELOPMENT_TEAM = QC68T7ZF53;
 				ENABLE_APP_SANDBOX = YES;
-				ENABLE_HARDENED_RUNTIME = NO;
+				ENABLE_HARDENED_RUNTIME = YES;
 				"ENABLE_HARDENED_RUNTIME[sdk=macosx*]" = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Clock/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "Clock ㉔";
+				INFOPLIST_KEY_CFBundleDisplayName = "24:00";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 26.0;
 				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = llc.goodhats.clock;
+				PRODUCT_BUNDLE_IDENTIFIER = llc.goodhats.clock24;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx watchos watchsimulator appletvos appletvsimulator xros xrsimulator";
+				SUPPORTED_PLATFORMS = macosx;
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,3,4,7";
+				WATCHOS_DEPLOYMENT_TARGET = 12.0;
 			};
 			name = Debug;
 		};
 		0232ADD0297C67740042D2FB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"ASSETCATALOG_COMPILER_APPICON_NAME[sdk=iphoneos*]" = "AppIcon-iOS";
 				"ASSETCATALOG_COMPILER_APPICON_NAME[sdk=macosx*]" = "AppIcon-macOS";
@@ -465,35 +523,37 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Clock/Preview Content\"";
-				DEVELOPMENT_TEAM = QC68T7ZF53;
 				ENABLE_APP_SANDBOX = YES;
-				ENABLE_HARDENED_RUNTIME = NO;
+				ENABLE_HARDENED_RUNTIME = YES;
 				"ENABLE_HARDENED_RUNTIME[sdk=macosx*]" = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Clock/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "Clock ㉔";
+				INFOPLIST_KEY_CFBundleDisplayName = "24:00";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 26.0;
 				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = llc.goodhats.clock;
+				PRODUCT_BUNDLE_IDENTIFIER = llc.goodhats.clock24;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx watchos watchsimulator appletvos appletvsimulator xros xrsimulator";
+				SUPPORTED_PLATFORMS = macosx;
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,3,4,7";
+				WATCHOS_DEPLOYMENT_TARGET = 12.0;
 			};
 			name = Release;
 		};
@@ -504,7 +564,7 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = QC68T7ZF53;
+				DEAD_CODE_STRIPPING = YES;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -517,15 +577,15 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = llc.goodhats.clock.widget;
+				PRODUCT_BUNDLE_IDENTIFIER = llc.goodhats.clock24.widget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,7";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -536,7 +596,7 @@
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = QC68T7ZF53;
+				DEAD_CODE_STRIPPING = YES;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -549,15 +609,90 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = llc.goodhats.clock.widget;
+				PRODUCT_BUNDLE_IDENTIFIER = llc.goodhats.clock24.widget;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx xros xrsimulator";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,7";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		F7A95E412F3EE0ED0038A62A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = widget24/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "24:00";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2026 GoodHatsLLC. All rights reserved.";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 26.2;
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = llc.goodhats.clock24.widget24;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		F7A95E422F3EE0ED0038A62A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = widget24/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "24:00";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2026 GoodHatsLLC. All rights reserved.";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 26.2;
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = llc.goodhats.clock24.widget24;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -591,9 +726,22 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		F7A95E402F3EE0ED0038A62A /* Build configuration list for PBXNativeTarget "widget24Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F7A95E412F3EE0ED0038A62A /* Debug */,
+				F7A95E422F3EE0ED0038A62A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		F7A95E432F3EE1600038A62A /* TwentyFourHourClock */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = TwentyFourHourClock;
+		};
 		F7EAE35E2A28AB0300664B37 /* TwentyFourHourClock */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = TwentyFourHourClock;

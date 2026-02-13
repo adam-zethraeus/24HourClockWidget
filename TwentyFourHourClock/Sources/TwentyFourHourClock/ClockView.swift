@@ -22,7 +22,7 @@ public struct ClockView: View {
     VStack(alignment: .center) {
       GeometryReader { proxy in
         let side: CGFloat = min(proxy.size.width, proxy.size.height)
-        let step: CGFloat = side / 16
+        let step: CGFloat = side / 16.0
         ZStack {
           Background(step: step)
           Numbers(step: step)
@@ -31,20 +31,20 @@ public struct ClockView: View {
             Hand.Fat(
               step: step,
               frontInset: step * 3.5,
-              innerPadding: step,
+              innerPadding: step*0.7,
               angle: angles.hour
             )
             Hand.Fat(
               step: step,
-              frontInset: step * 2.5,
-              innerPadding: step,
+              frontInset: step * 0.7,
+              innerPadding: step * 0.7,
               angle: angles.minute
             )
             if showSecondHand {
               Hand.Thin(
                 step: step,
-                frontInset: step * 2.1,
-                backInset: step * 7,
+                frontInset: step * 0.7,
+                backInset: step * 7.0,
                 angle: angles.second
               )
             }
@@ -58,10 +58,6 @@ public struct ClockView: View {
       }
       .aspectRatio(1, contentMode: .fit)
     }.frame(maxWidth: .infinity, maxHeight: .infinity)
-      .background {
-        Rectangle()
-          .fill(.black)
-      }
   }
 
   // MARK: Internal

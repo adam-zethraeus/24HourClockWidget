@@ -5,35 +5,34 @@ extension ClockView {
   struct Background: View {
     let step: CGFloat
     var body: some View {
-      ZStack {
+
+        // Clock face — radial gradient adds subtle depth
         Circle()
-          .foregroundColor(.black)
-          .padding(step * 0.2)
-        Circle()
-          .foregroundColor(.gray)
-          .padding(step * 0.3)
-        Circle()
-          .foregroundColor(.white)
-          .padding(step * 0.5)
-        Circle()
-          .foregroundColor(.black)
-          .frame(
-            width: step,
-            height: step
+          .fill(
+            RadialGradient(
+              gradient: Gradient(stops: [
+                .init(color: Color(white: 0.97), location: 0.0),
+                .init(color: Color(white: 0.94), location: 0.7),
+                .init(color: Color(white: 0.90), location: 1.0),
+              ]),
+              center: .center,
+              startRadius: 0,
+              endRadius: step * 7.5
+            )
           )
-      }
+          .padding(step * 0.5)
+          .shadow(color: .black.opacity(0.5), radius: step * 0.15)
     }
   }
 
   struct HandPin: View {
     let step: CGFloat
     var body: some View {
-      Circle()
-        .foregroundColor(.white)
-        .frame(
-          width: step * 0.2,
-          height: step * 0.2
-        )
+      ZStack {
+        Circle()
+          .fill(Color(white: 0.95))
+          .frame(width: step * 0.15, height: step * 0.15)
+      }
     }
   }
 
@@ -64,22 +63,36 @@ extension ClockView {
 
     var body: some View {
       ZStack {
-        ForEach(0 ..< 24) { position in
-          let isFiveSeconds = position % 2 == 0
-          let length: CGFloat = isFiveSeconds ? step * 1.2 : step * 0.4
-          Tick(
-            inset: step * 2.5,
-            length: length
+        ForEach(0 ..< 120, id: \.self) { position in
+          let s = position % 5
+
+          let t = switch s {
+          case 0:
+            Tick(inset: step * 0.7, length: step * 0.8)
+          case 1:
+            Tick(inset: step * 0.7, length: step * 0.55)
+          case 2:
+            Tick(inset: step * 0.7, length: step * 0.55)
+          case 3:
+            Tick(inset: step * 0.7, length: step * 0.55)
+          case 4:
+            Tick(inset: step * 0.7, length: step * 0.55)
+          default:
+            fatalError()
+          }
+          t
+          .stroke(
+            Color(white: 0.12),
+            style: StrokeStyle(
+              lineWidth: step * (s == 0 ? 0.045 : 0.015),
+              lineCap: .round
+            )
           )
-          .stroke(lineWidth: step * 0.02)
           .rotationEffect(
-            .radians(Double.pi * 2 / 24 * Double(position))
+            .radians(Double.pi * 2 / 120 * Double(position))
           )
         }
       }
-      .foregroundColor(
-        .init(red: 34 / 255, green: 34 / 255, blue: 34 / 255)
-      )
     }
   }
 
@@ -92,22 +105,22 @@ extension ClockView {
           .font(
             .custom(
               "Futura",
-              fixedSize: step * 0.9
+              fixedSize: step * 0.85
             )
             .weight(.light)
           )
-          .foregroundColor(.black)
+          .foregroundColor(Color(white: 0.1))
           .rotationEffect(
             .radians(
-              -(Double.pi * 2 / 24 * Double(hour))
+              -(Double.pi * 2.0 / 24.0 * Double(hour))
             )
           )
         Spacer()
       }
-      .padding(step * 0.8)
+      .padding(step * 1.6)
       .rotationEffect(
         .radians(
-          Double.pi * 2 / 24 * Double(hour)
+          Double.pi * 2.0 / 24.0 * Double(hour)
         )
       )
     }
@@ -117,7 +130,7 @@ extension ClockView {
     let step: CGFloat
     var body: some View {
       ZStack {
-        ForEach(0 ..< 24) { hour in
+        ForEach(0 ..< 24, id: \.self) { hour in
           Number(
             step: step,
             hour: hour + 1
@@ -146,9 +159,9 @@ extension ClockView {
           )
           .fill()
           .foregroundColor(.red)
-          .frame(width: step * 0.1)
+          .frame(width: step * 0.08)
           .rotationEffect(.radians(angle))
-          .shadow(radius: step * 0.4)
+          .shadow(color: .black.opacity(0.2), radius: step * 0.25, y: step * 0.06)
 
           HandPath(
             frontInset: backInset,
@@ -156,14 +169,15 @@ extension ClockView {
           )
           .fill()
           .foregroundColor(.red)
-          .frame(width: step * 0.1)
+          .frame(width: step * 0.12)
           .rotationEffect(.radians(Double.pi + angle))
-          .shadow(radius: step * 0.4)
+          .shadow(color: .black.opacity(0.2), radius: step * 0.25, y: step * 0.06)
 
           Circle()
             .fill()
             .foregroundColor(.red)
-            .frame(width: step * 0.7, height: step * 0.7)
+            .frame(width: step * 0.6, height: step * 0.6)
+            .shadow(color: .black.opacity(0.15), radius: step * 0.1)
         }
       }
     }
@@ -182,19 +196,18 @@ extension ClockView {
             innerPadding: innerPadding
           )
           .fill()
-          .foregroundColor(.black)
-          .frame(width: step * 0.4, alignment: .center)
+          .foregroundColor(Color(white: 0.08))
+          .frame(width: step * 0.35, alignment: .center)
           .rotationEffect(.radians(angle))
-          .shadow(radius: step * 0.4)
+          .shadow(color: .black.opacity(0.25), radius: step * 0.25, y: step * 0.06)
           HandPath(
             frontInset: frontInset,
             innerPadding: 0
           )
           .fill()
-          .foregroundColor(.black)
+          .foregroundColor(Color(white: 0.08))
           .frame(width: step * 0.1, alignment: .center)
           .rotationEffect(.radians(angle))
-          .shadow(radius: step * 0.4)
         }
       }
     }
